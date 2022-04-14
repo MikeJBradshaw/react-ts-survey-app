@@ -1,0 +1,36 @@
+.App {
+    /* margin: 0 10px; */
+}
+
+.table-navbar-container {
+    display: flex;
+    justify-content: center !important;
+}
+
+.grommet-app-heading {
+    padding-top: 8px;
+}
+
+
+.login-form, .signup-form {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.rounded-border {
+    border-radius: 0.5rem;
+}
+
+.form-container {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 35px;
+    margin-right: 0px !important;
+}
+
+.switch {
+    padding: 5px 5px !important;
+}
+
