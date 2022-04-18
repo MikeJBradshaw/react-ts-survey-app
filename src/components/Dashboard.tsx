@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
     Box,
@@ -30,6 +31,9 @@ const Dashboard: FunctionComponent<ConnectedProps<typeof connector>> = ({ loadin
         init();
     }, []);
 
+    const navigate = useNavigate();
+    const handleCreateNewSurvey = () => { navigate('/survey/create'); }
+
     if (loading) { 
         return (<Spinner size="xlarge" />);
     }
@@ -50,14 +54,16 @@ const Dashboard: FunctionComponent<ConnectedProps<typeof connector>> = ({ loadin
                             <TableCell scope="col" border="bottom">Tags</TableCell>
                             <TableCell scope="col" border="bottom">Actions</TableCell>
                             <TableCell scope="col" border="bottom">
-                                <Button icon={<AddCircle color="green" />} />
+                                <Button 
+                                    icon={<AddCircle color="green" />}
+                                    onClick={() => handleCreateNewSurvey()} />
                             </TableCell>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {surveys.map((survey, i) => {
                             return (
-                                <TableRow>
+                                <TableRow key={i}>
                                     <TableCell><Text weight={400}>{ survey.title }</Text></TableCell>
                                     <TableCell><Text weight={200}>{ survey.status.toUpperCase() }</Text></TableCell>
                                     <TableCell><Text weight={200}>{ survey.created }</Text></TableCell>

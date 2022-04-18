@@ -59,7 +59,7 @@ const Profile: FunctionComponent<ConnectedProps<typeof connector>> = ({ createUs
                 background="light-1"
                 fill="horizontal"
             >
-                <Heading level={3} alignSelf="start">Create new account</Heading>
+                <Heading className="form-title" level={3} alignSelf="start">Create new account</Heading>
                 <Form className="signup-form">
                     <FormField label="Email">
                         <TextInput

@@ -38,15 +38,6 @@ const App: FunctionComponent<ConnectedProps<typeof connector>> = ({ loading, use
         init();
     }, []);
 
-	if (loading) {
-        console.log("App Loading");
-        return (
-            <Grommet theme={theme}>
-                <Header />
-                <Spinner size="xlarge" />
-            </Grommet>
-        );
-	}
     
     return (
         <Grommet theme={theme}>
@@ -59,14 +50,12 @@ const App: FunctionComponent<ConnectedProps<typeof connector>> = ({ loading, use
                         { name: 'main', start: [0, 1], end: [1, 1] },
                     ]}
                 >
-                    <Box gridArea="header" background="accent-3">
+                    <Router>
                         <Header />
-                    </Box>
-                    <Box 
-                        gridArea="main" 
-                        // background="light-5"
-                    >
-                        <Router>
+                        <Box 
+                            gridArea="main" 
+                            // background="light-5"
+                        >
                             <Routes>
                                 {!user && <Route path="/" element={<Landing />} />}
                                 {!user && <Route path="/signup" element={<Profile />} />}
@@ -75,8 +64,8 @@ const App: FunctionComponent<ConnectedProps<typeof connector>> = ({ loading, use
                                 {user &&<Route path="/survey/create" element={<Survey />} />}
                                 <Route path="*" element={<Navigate to="/" replace />} />
                             </Routes>
-                        </Router>
-                    </Box>
+                        </Box>
+                    </Router>
                 </Grid>
         </Grommet>
     ); 

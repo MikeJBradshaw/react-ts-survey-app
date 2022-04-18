@@ -7,10 +7,9 @@
     justify-content: center !important;
 }
 
-.grommet-app-heading {
-    padding-top: 8px;
+.form-title {
+    padding-left: 15px;
 }
-
 
 .login-form, .signup-form {
     padding-left: 15px;

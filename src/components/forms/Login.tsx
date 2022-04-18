@@ -23,10 +23,10 @@ const Login: FunctionComponent<ConnectedProps<typeof connector>> = ({ loginUser 
                 className="rounded-border"
                 direction="column" 
                 pad="xsmall" 
-                background="light-1" 
+                background="light-2" 
                 fill="horizontal"
             >
-                <Heading level={3} alignSelf="start">Login</Heading>
+                <Heading className="form-title" level={3} alignSelf="start">Login</Heading>
                 <Form className="login-form">
                     <FormField label="Name">
                         <TextInput
