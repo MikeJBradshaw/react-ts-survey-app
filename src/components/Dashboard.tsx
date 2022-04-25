@@ -39,7 +39,7 @@ const Dashboard: FunctionComponent<ConnectedProps<typeof connector>> = ({ loadin
     }
 
     if (!surveys || surveys.length === 0) {
-        return (<>No surveys yet! Create one now!</>);
+        return (<Box><Text>Create a new survey now</Text></Box>);
     }
 
     return (

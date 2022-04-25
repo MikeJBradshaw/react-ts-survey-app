@@ -56,7 +56,7 @@ const Profile: FunctionComponent<ConnectedProps<typeof connector>> = ({ createUs
                 className="rounded-border"
                 direction="column"
                 pad="xsmall"
-                background="light-1"
+                background="light-2"
                 fill="horizontal"
             >
                 <Heading className="form-title" level={3} alignSelf="start">Create new account</Heading>
@@ -64,56 +64,64 @@ const Profile: FunctionComponent<ConnectedProps<typeof connector>> = ({ createUs
                     <FormField label="Email">
                         <TextInput
                             value={userForm.email}
+                            placeholder="We will never tell your email"
                             onChange={({target: { value }}) => updateForm({ ...userForm, email: value })}
                         />
                     </FormField>
-                    <FormField label="Password">
-                        <TextInput
-                            value={userForm.password}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, password: value })}
-                            type="password"
-                        />
-                    </FormField>
-                    <FormField label="Confirm Password">
-                        <TextInput
-                            value={userForm.confirm}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, confirm: value })}
-                            type="password"
-                        />
-                    </FormField>
-                    <FormField label="First Name">
-                        <TextInput
-                            value={userForm.first}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, first: value })}
-                        />
-                    </FormField>
-                    <FormField label="Last Name">
-                        <TextInput
-                            value={userForm.last}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, last: value })}
-                        />
-                    </FormField>
+                    <Box direction="row">
+                        <FormField label="Password">
+                            <TextInput
+                                value={userForm.password}
+                                placeholder="12 or more"
+                                onChange={({target: { value }}) => updateForm({ ...userForm, password: value })}
+                                type="password"
+                            />
+                        </FormField>
+                        <FormField label="Confirm" padding="medium">
+                            <TextInput
+                                value={userForm.confirm}
+                                onChange={({target: { value }}) => updateForm({ ...userForm, confirm: value })}
+                                type="password"
+                            />
+                        </FormField>
+                    </Box>
+                    <Box direction="row">
+                        <FormField label="First Name">
+                            <TextInput
+                                value={userForm.first}
+                                onChange={({target: { value }}) => updateForm({ ...userForm, first: value })}
+                            />
+                        </FormField>
+                        <FormField label="Last Name">
+                            <TextInput
+                                value={userForm.last}
+                                onChange={({target: { value }}) => updateForm({ ...userForm, last: value })}
+                            />
+                        </FormField>
+                    </Box>
                     <FormField label="Gender">
                         <Select
                             options={['Male', 'Female', 'Other']}
-                            value={userForm.gender}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, gender: value })}
+                            value={userForm.sex}
+                            onChange={({target: { value }}) => updateForm({ ...userForm, sex: value })}
                         />
                     </FormField>
-                    <FormField label="Country">
-                        <Select
-                            options={countryList}
-                            value={userForm.country}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, country: value })}
-                        />
-                    </FormField>
-                    <FormField label="State">
-                        <TextInput
-                            disabled={userForm.country !== 'United States'}
-                            value={userForm.state}
-                            onChange={({target: { value }}) => updateForm({ ...userForm, state: value })}
-                        />
-                    </FormField>
+                    <Box direction="row">
+                        <FormField label="Country">
+                            <Select
+                                options={countryList}
+                                value={userForm.country}
+                                onChange={({target: { value }}) => updateForm({ ...userForm, country: value })}
+                            />
+                        </FormField>
+                        <FormField label="State">
+                            <TextInput
+                                disabled={userForm.country !== 'United States'}
+                                value={userForm.state}
+                                onChange={({target: { value }}) => updateForm({ ...userForm, state: value })}
+                            />
+                        </FormField>
+                    </Box>
 
                     <Box direction="row" margin={{top: "30px"}} gap="medium">
                         <Button 
